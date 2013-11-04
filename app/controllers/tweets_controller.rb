@@ -7,10 +7,7 @@ class TweetsController < ApplicationController
 
   def create
     @new_tweet = Tweet.new(params[:tweet])
-    if(@new_tweet.save)
-      redirect_to :action => :index
-    else
-      render :action => :index
-    end
+    @new_tweet.save
+    redirect_to :action => :index
   end
 end
